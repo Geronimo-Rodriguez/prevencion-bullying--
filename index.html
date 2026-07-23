@@ -106,8 +106,12 @@
   }
 
   /* COMIC */
-  .comic-strip{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem;
+ .comic-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1rem;
+    margin-top:2rem;
+}
   }
   .panel{
     background:var(--paper-2);
