@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voces que Cuentan — Prevención del Acoso Escolar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#212a3a;
+    --navy:#1f3247;
+    --navy-deep:#152332;
+    --amber:#e8a13c;
+    --amber-soft:#f3c988;
+    --teal:#4d7d78;
+    --paper:#f6f3ec;
+    --paper-2:#eee9de;
+    --line:rgba(31,50,71,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    color:var(--navy-deep);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal);
+  }
+  a{color:inherit;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1.1rem 6vw;
+    background:rgba(246,243,236,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem; color:var(--navy-deep);}
+  .brand span{color:var(--amber);}
+  .navlinks{display:flex; gap:1.8rem; font-size:0.92rem;}
+  .navlinks a{text-decoration:none; opacity:0.75; transition:opacity .2s;}
+  .navlinks a:hover{opacity:1;}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:7vw 6vw 5vw;
+    background:var(--navy-deep);
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse at 75% 20%, rgba(232,161,60,0.16), transparent 60%);
+  }
+  .wave{position:relative; width:100%; height:120px; margin:2rem 0 1rem;}
+  .hero h1{
+    color:var(--paper);
+    font-size:clamp(2.1rem, 5vw, 3.6rem);
+    font-weight:600;
+    max-width:14ch;
+    letter-spacing:-0.01em;
+  }
+  .hero .lede{
+    max-width:52ch; margin-top:1.3rem; font-size:1.08rem;
+    color:rgba(246,243,236,0.82);
+  }
+  .hero .eyebrow{color:var(--amber-soft);}
+
+  section{padding:5.5vw 6vw;}
+  .section-head{max-width:60ch; margin-bottom:2.5rem;}
+  .section-head h2{font-size:clamp(1.6rem, 3vw, 2.2rem); font-weight:600; margin-top:0.4rem;}
+
+  /* ABOUT / PRESENTACION */
+  .about-grid{
+    display:grid; grid-template-columns: 1fr 1.3fr; gap:3.5rem; align-items:start;
+  }
+  .avatar{
+    width:100%; aspect-ratio:4/5;
+    background:linear-gradient(155deg, var(--teal), var(--navy));
+    border-radius:6px;
+    display:flex; align-items:flex-end; padding:1.2rem;
+    color:var(--paper); font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+  }
+  .about p{font-size:1.02rem; margin:0 0 1rem;}
+  .fill{
+    background:var(--paper-2); border:1px dashed var(--line);
+    padding:0.15rem 0.5rem; border-radius:4px; font-style:italic; color:var(--teal);
+  }
+
+  /* COMIC */
+  .comic-strip{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem;
+  }
+  .panel{
+    background:var(--paper-2);
+    border:2px solid var(--navy-deep);
+    border-radius:4px;
+    aspect-ratio:3/4;
+    position:relative;
+    padding:0.8rem;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  }
+  .panel .tag{
+    position:absolute; top:0.6rem; left:0.6rem;
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--teal);
+  }
+  .bubble{
+    background:#fff; border:1.5px solid var(--navy-deep); border-radius:14px;
+    padding:0.55rem 0.7rem; font-size:0.85rem; position:relative;
+  }
+  .figure{
+    position:absolute; bottom:2.6rem; right:0.8rem;
+    width:34%; aspect-ratio:1/1.4;
+  }
+  .figure svg{width:100%; height:100%;}
+
+  /* MIND MAP */
+  .mindmap-wrap{
+    background:#fff; border:1px solid var(--line); border-radius:8px; padding:2rem;
+    overflow-x:auto;
+  }
+
+  /* RESOURCES */
+  .resources{
+    background:var(--navy-deep); color:var(--paper);
+  }
+  .resources .section-head h2{color:var(--paper);}
+  .res-cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.2rem; margin-top:2rem;}
+  .res-card{
+    background:rgba(246,243,236,0.06); border:1px solid rgba(246,243,236,0.18);
+    padding:1.4rem; border-radius:6px;
+  }
+  .res-card .eyebrow{color:var(--amber-soft);}
+  .res-card h3{color:var(--paper); font-size:1.05rem; margin-top:0.4rem;}
+  .res-card p{margin:0.5rem 0 0; font-size:0.92rem; color:rgba(246,243,236,0.78);}
+
+  footer{
+    padding:2.4rem 6vw; text-align:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--teal);
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;}
+    .comic-strip{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Voces<span>·</span>que Cuentan</div>
+  <div class="navlinks">
+    <a href="#quien-soy">Quién soy</a>
+    <a href="#historieta">Historieta</a>
+    <a href="#mapa-mental">Mapa mental</a>
+    <a href="#apoyo">Apoyo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Un espacio sobre acoso escolar y salud mental infantil</div>
+  <h1>Cuando un niño se queda callado, alguien más tiene que hablar.</h1>
+  <svg class="wave" viewBox="0 0 900 120" preserveAspectRatio="none">
+    <polyline points="0,60 60,60 90,20 120,100 150,40 180,80 210,60 260,60 300,10 330,110 360,50 400,70 440,60 500,60 540,25 570,95 600,45 640,75 680,60 900,60"
+      fill="none" stroke="#e8a13c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <p class="lede">Este sitio nace para hablar sin rodeos del acoso escolar y de cómo afecta la salud mental de niñas, niños y adolescentes — y también del TDAH, una condición que a menudo se confunde con "mal comportamiento" y termina siendo, sin querer, otro motivo de burla.</p>
+</header>
+
+<section id="quien-soy">
+  <div class="section-head">
+    <div class="eyebrow">01 — Presentación</div>
+    <h2>Quién soy</h2>
+  </div>
+  <div class="about-grid">
+    <div class="avatar" style="background-image:url('johana-foto-perfil.jpg'); background-size:cover; background-position:center;"></div>
+    <div class="about">
+      <p>Soy <strong>Johana Muñoz</strong>, mamá luchadora de dos tesoros: <strong>María José</strong> y <strong>Jerónimo Zapata</strong>. Jerónimo tiene 11 años y vive con TDAH, así que en casa aprendimos de primera mano lo que significa esa energía acelerada que muchas veces el mundo no entiende ni tiene paciencia para acompañar.</p>
+      <p>Cuando no estoy en modo mamá, me encontrarás estudiando, escuchando música, leyendo, viendo Netflix, o planeando la próxima salida: ir al cine, viajar a un pueblo nuevo o simplemente bailar con las ganas de siempre. Vivo con mi esposo, mis dos hijos, mi perrita <strong>Bagheira</strong>, mi lorito <strong>Pancho</strong> y mi tortuga <strong>Tomasa</strong> — un hogar con bastante ruido y mucho amor.</p>
+      <p>Creo este espacio como parte de mi formación en herramientas TIC, pero sobre todo porque el tema me toca de cerca: como mamá de un niño con TDAH sé lo fácil que es que lo confundan con "mal comportamiento", y como parte de esta sociedad me duele profundamente ver a cuántas familias el acoso escolar les ha arrebatado a sus hijos. Quiero que este sitio sea un lugar de información, de acompañamiento y, sobre todo, de esperanza para otros padres que están en esta misma lucha.</p>
+      <p><strong>Propósito de este sitio:</strong> visibilizar el acoso escolar como un problema de salud pública, dar herramientas a familias y docentes para detectarlo a tiempo, y recordar que pedir ayuda es un acto de valentía, no de debilidad.</p>
+    </div>
+  </div>
+</section>
+
+<section id="historieta" style="background:var(--paper-2);">
+  <div class="section-head">
+    <div class="eyebrow">02 — Historieta</div>
+    <h2>La historia de Jerónimo</h2>
+    <p style="margin-top:0.8rem; font-size:0.95rem;">Un cuento en cuatro viñetas inspirado en mi hijo Jerónimo, de 11 años. Puedes recrear estas escenas en <strong>Pixton</strong> o <strong>Canva</strong> y reemplazar los paneles por tus imágenes finales.</p>
+  </div>
+  <div class="comic-strip">
+    <div class="panel">
+      <span class="tag">1</span>
+      <div class="figure"><svg viewBox="0 0 60 84"><circle cx="30" cy="18" r="14" fill="#e8a13c"/><rect x="14" y="34" width="32" height="40" rx="8" fill="#4d7d78"/><line x1="14" y1="45" x2="4" y2="30" stroke="#e8a13c" stroke-width="4" stroke-linecap="round"/><line x1="46" y1="45" x2="56" y2="30" stroke="#e8a13c" stroke-width="4" stroke-linecap="round"/></svg></div>
+      <div class="bubble">"¡No podía quedarme quieto, tenía mil ideas en la cabeza a la vez!"</div>
+    </div>
+    <div class="panel">
+      <span class="tag">2</span>
+      <div class="figure"><svg viewBox="0 0 60 84"><circle cx="30" cy="18" r="14" fill="#1f3247"/><rect x="16" y="34" width="28" height="40" rx="8" fill="#e8a13c"/></svg></div>
+      <div class="bubble">"Un compañero me dijo 'loco' por moverme tanto en clase."</div>
+    </div>
+    <div class="panel">
+      <span class="tag">3</span>
+      <div class="figure"><svg viewBox="0 0 60 84"><circle cx="30" cy="18" r="14" fill="#4d7d78"/><rect x="16" y="34" width="28" height="40" rx="8" fill="#1f3247"/></svg></div>
+      <div class="bubble">"Se lo conté a mi mamá. Ella me escuchó y habló con mi profesora."</div>
+    </div>
+    <div class="panel">
+      <span class="tag">4</span>
+      <div class="figure"><svg viewBox="0 0 60 84"><circle cx="30" cy="16" r="14" fill="#e8a13c"/><rect x="14" y="32" width="32" height="42" rx="8" fill="#4d7d78"/><line x1="14" y1="42" x2="2" y2="24" stroke="#e8a13c" stroke-width="4" stroke-linecap="round"/><line x1="46" y1="42" x2="58" y2="24" stroke="#e8a13c" stroke-width="4" stroke-linecap="round"/></svg></div>
+      <div class="bubble">"Mi TDAH no me hace 'raro': me hace curioso, rápido y lleno de energía."</div>
+    </div>
+  </div>
+  <p style="margin-top:1.5rem; font-size:0.9rem; color:var(--teal); font-style:italic;">Reemplaza este guion por tus propias ilustraciones o las de Jerónimo cuando las tengas listas.</p>
+</section>
+
+<section id="mapa-mental">
+  <div class="section-head">
+    <div class="eyebrow">03 — Mapa mental</div>
+    <h2>¿Cómo organizo las herramientas TIC?</h2>
+    <p style="margin-top:0.8rem; font-size:0.95rem;">Reemplaza este diagrama por la imagen de tu propio mapa mental (exportada como PNG/JPG desde tu editor de presentaciones).</p>
+  </div>
+  <div class="mindmap-wrap">
+    <img src="mapa-mental.jpg" alt="Mapa mental: Herramientas TIC" style="width:100%; height:auto; display:block; border-radius:4px;">
+  </div>
+</section>
+
+<section id="apoyo" class="resources">
+  <div class="section-head">
+    <div class="eyebrow">04 — Si necesitas hablar con alguien</div>
+    <h2>Nadie tiene que atravesar esto solo</h2>
+    <p style="margin-top:0.8rem; font-size:0.95rem; color:rgba(246,243,236,0.78);">Si tú, tu hijo o hija, o alguien que conoces está pasando por acoso escolar o pensamientos de hacerse daño, hay líneas gratuitas y confidenciales disponibles en Colombia.</p>
+  </div>
+  <div class="res-cards">
+    <div class="res-card">
+      <div class="eyebrow">Línea nacional</div>
+      <h3>Línea 106</h3>
+      <p>Orientación psicosocial gratuita para niñas, niños y adolescentes, y para sus familias.</p>
+    </div>
+    <div class="res-card">
+      <div class="eyebrow">Emergencias</div>
+      <h3>Línea 123</h3>
+      <p>Para cualquier situación de riesgo inmediato.</p>
+    </div>
+    <div class="res-card">
+      <div class="eyebrow">Salud mental</div>
+      <h3>Minsalud — Línea 192, opción 4</h3>
+      <p>Línea de orientación en salud mental del Ministerio de Salud, disponible 24/7.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Sitio creado como evidencia de la Actividad de Aprendizaje 2 — Implementar las herramientas TIC · SENA
+</footer>
+
+</body>
+</html>
